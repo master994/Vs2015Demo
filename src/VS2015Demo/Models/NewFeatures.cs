@@ -11,6 +11,10 @@ namespace VS2015Demo.Models
         public string FirstName { get; set; } = "Test1";
         public string LastName { get; set; } = "Test2";
         public string Address { get; set; } = "Test3";
+        public DateTime Begining { get; set; }
+
+        //Oh expression body
+        public string Year => Begining.Year.ToString();
 
         public Descendant D { get; set; }
         public string GetDetail()
@@ -24,10 +28,11 @@ namespace VS2015Demo.Models
             };
 
             //Null-Conditional Operator
+            //if(D != null && D.A != null)
             if (D?.A > 0)
                 return string.Empty;
 
-            return $"Logged in {FirstName} , {LastName}";
+            return $"Logged in {FirstName} , {LastName} {nameof(D)}";
         }
 
 

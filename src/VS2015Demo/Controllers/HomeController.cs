@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNet.Mvc;
+using System.Threading.Tasks;
 
 namespace VS2015Demo.Controllers
 {
@@ -27,6 +28,11 @@ namespace VS2015Demo.Controllers
 
             return View();
         }
+        public string Valami()
+        {
+
+            return "Valami4";
+        }
 
         public IActionResult Contact()
         {
@@ -38,6 +44,18 @@ namespace VS2015Demo.Controllers
         public IActionResult Error()
         {
             return View("~/Views/Shared/Error.cshtml");
+        }
+    }
+
+    [ViewComponent(Name = "CustomizeApp")]
+    public class CustomizeApp : ViewComponent
+    {
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            string MyView = "CustomizeApp";
+            ViewBag.PriorityMessage = "Message";
+
+            return View(MyView);
         }
     }
 }

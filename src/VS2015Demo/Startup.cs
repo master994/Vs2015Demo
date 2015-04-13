@@ -18,7 +18,7 @@ namespace VS2015Demo
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env) 
         {
             // Setup configuration sources.
             Configuration = new Configuration()
